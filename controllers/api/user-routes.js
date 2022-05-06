@@ -1,7 +1,7 @@
 
 const router = require('express').Router();
 const { User, Post, Comment, Vote } = require('../../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -78,6 +78,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.post('/login', withAuth, (req, res) => {
+   
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     User.findOne({
         where: {
